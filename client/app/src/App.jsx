@@ -101,6 +101,12 @@ function App() {
   };
 
   const deleteBooking = async (pk) => {
+
+    const isConfirmed = window.confirm("Are you sure you want to delete this booking?");
+    if (!isConfirmed) {
+      return;  
+    }
+    
     try {
       await fetch(`http://127.0.0.1:8000/api/bookings/${pk}`, {
         method: "DELETE",
