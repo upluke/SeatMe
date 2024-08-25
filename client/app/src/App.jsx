@@ -1,4 +1,8 @@
 import { useEffect, useState } from "react";
+import BookingForm from "./components/BookingForm";
+import BookingList from "./components/BookingList";
+import EditBookingPopup from "./components/EditBookingPopup";
+
 import "./App.css";
 
 function App() {
@@ -101,12 +105,13 @@ function App() {
   };
 
   const deleteBooking = async (pk) => {
-
-    const isConfirmed = window.confirm("Are you sure you want to delete this booking?");
+    const isConfirmed = window.confirm(
+      "Are you sure you want to delete this booking?"
+    );
     if (!isConfirmed) {
-      return;  
+      return;
     }
-    
+
     try {
       await fetch(`http://127.0.0.1:8000/api/bookings/${pk}`, {
         method: "DELETE",
@@ -121,53 +126,27 @@ function App() {
   return (
     <>
       <h1>Booking System</h1>
-      <div>
-        <input
-          type="text"
-          placeholder="Name"
-          value={guestName}
-          onChange={(e) => setGuestName(e.target.value)}
-        />
-        <input
-          type="number"
-          placeholder="Number of people"
-          value={headCount}
-          onChange={(e) => setHeadCount(Number(e.target.value))}
-        />
-        <button onClick={addBooking}>Add Booking</button>
-      </div>
-
-      {bookings.map((booking) => (
-        <div key={booking.id}>
-          <p>Name: {booking.guest_name} </p>
-          <p>Number of People: {booking.head_count}</p>
-
-          <button onClick={() => openEditPopup(booking)}>Edit</button>
-          <button onClick={() => deleteBooking(booking.id)}>Delete</button>
-        </div>
-      ))}
-
-      {isEditing && (
-        <div className="popup-container">
-          <div className="popup-window">
-            <h2>Edit Booking</h2>
-            <input
-              type="tesxt"
-              value={newGuestName}
-              onChange={(e) => setNewGuestName(e.target.value)}
-              autoFocus
-            />
-            <input
-              type="number"
-              value={newHeadCount}
-              onChange={(e) => setNewHeadCount(e.target.value)}
-              autoFocus
-            />
-            <button onClick={updateBooking}>Update</button>
-            <button onClick={closeEditPopup}>Cancel</button>
-          </div>
-        </div>
-      )}
+      <BookingForm
+        guestName={guestName}
+        headCount={headCount}
+        setGuestName={setGuestName}
+        setHeadCount={setHeadCount}
+        addBooking={addBooking}
+      />
+      <BookingList
+        bookings={bookings}
+        openEditPopup={openEditPopup}
+        deleteBooking={deleteBooking}
+      />
+      <EditBookingPopup
+        isEditing={isEditing}
+        newGuestName={newGuestName}
+        setNewGuestName={setNewGuestName}
+        newHeadCount={newHeadCount}
+        setNewHeadCount={setNewHeadCount}
+        updateBooking={updateBooking}
+        closeEditPopup={closeEditPopup}
+      />
     </>
   );
 }
