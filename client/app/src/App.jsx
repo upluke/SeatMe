@@ -3,6 +3,7 @@ import BookingForm from "./components/BookingForm";
 import BookingList from "./components/BookingList";
 import EditBookingPopup from "./components/EditBookingPopup";
 import { Container, Grid, Typography, Box } from "@mui/material";
+import ContentPasteIcon from "@mui/icons-material/ContentPaste";
 
 import "./App.css";
 
@@ -128,6 +129,7 @@ function App() {
     <Container maxWidth="lg">
       <Box mb={7}>
         <Typography variant="h3" align="center" gutterBottom>
+          <ContentPasteIcon fontSize="large" sx={{ mr: 2 }} />
           Reservation
         </Typography>
       </Box>
