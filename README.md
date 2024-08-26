@@ -46,19 +46,19 @@ Edit the settings.py file to update the database configuration. Make sure to rep
 ### 5. Apply Migrations
 
 ```bash
-python manage.py migrate
+python3 manage.py migrate
 ```
 
 ### 6. Create a Superuser (Optional)
 
 ```bash
-python manage.py createsuperuser
+python3 manage.py createsuperuser
 ```
 
 ### 7. Start the Django Development Server
 
 ```bash
-python manage.py runserver
+python3 manage.py runserver
 ```
 
 Admin Interface: Access the admin interface at http://127.0.0.1:8000/api/bookings/create/
