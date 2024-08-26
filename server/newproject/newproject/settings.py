@@ -89,16 +89,7 @@ WSGI_APPLICATION = 'newproject.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'reservation_db',
-#         'USER': 'postgres',
-#         'PASSWORD': 'password',
-#         'HOST': 'localhost', 
-#         'PORT': '5432',       
-#     }
-# }
+
 
 DATABASES = {
     'default': {
