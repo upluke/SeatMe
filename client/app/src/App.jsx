@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import BookingForm from "./components/BookingForm";
 import BookingList from "./components/BookingList";
 import EditBookingPopup from "./components/EditBookingPopup";
+import { Container, Grid, Typography, Box } from "@mui/material";
 
 import "./App.css";
 
@@ -53,7 +54,7 @@ function App() {
       // console.log(">>>", data);
       setBookings((prev) => [...prev, data]);
       setGuestName("");
-      setHeadCount(0);
+      setHeadCount(1);
     } catch (err) {
       console.log(err);
     }
@@ -124,20 +125,48 @@ function App() {
   };
 
   return (
-    <>
-      <h1>Booking System</h1>
-      <BookingForm
-        guestName={guestName}
-        headCount={headCount}
-        setGuestName={setGuestName}
-        setHeadCount={setHeadCount}
-        addBooking={addBooking}
-      />
-      <BookingList
-        bookings={bookings}
-        openEditPopup={openEditPopup}
-        deleteBooking={deleteBooking}
-      />
+    <Container maxWidth="lg">
+      <Box mb={7}>
+        <Typography variant="h3" align="center" gutterBottom>
+          Booking System
+        </Typography>
+      </Box>
+
+      <Grid container spacing={7}>
+        <Grid item xs={12} md={6}>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              height: "100%",
+            }}
+          >
+            <BookingForm
+              guestName={guestName}
+              headCount={headCount}
+              setGuestName={setGuestName}
+              setHeadCount={setHeadCount}
+              addBooking={addBooking}
+            />
+          </Box>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <Box
+            sx={{
+              maxHeight: "600px",
+              overflowY: "auto",
+            }}
+          >
+            <BookingList
+              bookings={bookings}
+              openEditPopup={openEditPopup}
+              deleteBooking={deleteBooking}
+            />
+          </Box>
+        </Grid>
+      </Grid>
+
       <EditBookingPopup
         isEditing={isEditing}
         newGuestName={newGuestName}
@@ -147,7 +176,7 @@ function App() {
         updateBooking={updateBooking}
         closeEditPopup={closeEditPopup}
       />
-    </>
+    </Container>
   );
 }
 

@@ -1,17 +1,37 @@
-/* eslint-disable react/prop-types */
+import { Card, CardContent, Typography, Button, Grid } from "@mui/material";
+
 const BookingList = ({ bookings, openEditPopup, deleteBooking }) => {
   return (
-    <div>
+    <Grid container spacing={2}>
       {bookings.map((booking) => (
-        <div key={booking.id}>
-          <p>Name: {booking.guest_name} </p>
-          <p>Number of People: {booking.head_count}</p>
+        <Grid item xs={12} key={booking.id}>
+          <Card>
+            <CardContent>
+              <Typography variant="h6"> {booking.guest_name} </Typography>
+              <Typography variant="body1">
+                Number of People: {booking.head_count}
+              </Typography>
 
-          <button onClick={() => openEditPopup(booking)}>Edit</button>
-          <button onClick={() => deleteBooking(booking.id)}>Delete</button>
-        </div>
+              <Button
+                variant="outlined"
+                color="primary"
+                onClick={() => openEditPopup(booking)}
+                style={{ marginRight: "8px" }}
+              >
+                Edit
+              </Button>
+              <Button
+                variant="outlined"
+                color="secondary"
+                onClick={() => deleteBooking(booking.id)}
+              >
+                Delete
+              </Button>
+            </CardContent>
+          </Card>
+        </Grid>
       ))}
-    </div>
+    </Grid>
   );
 };
 
