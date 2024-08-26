@@ -128,7 +128,7 @@ function App() {
     <Container maxWidth="lg">
       <Box mb={7}>
         <Typography variant="h3" align="center" gutterBottom>
-          Booking System
+          Reservation
         </Typography>
       </Box>
 
