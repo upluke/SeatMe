@@ -23,8 +23,6 @@ function App() {
     fetchBookings();
   }, []);
 
-  // test url: http://127.0.0.1:8000/api/bookings/
-
   const fetchBookings = async () => {
     try {
       const response = await fetch(`${API_BASE_URL}/bookings/`);
