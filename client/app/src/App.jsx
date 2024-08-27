@@ -4,6 +4,7 @@ import BookingList from "./components/BookingList";
 import EditBookingPopup from "./components/EditBookingPopup";
 import { Container, Grid, Typography, Box } from "@mui/material";
 import ContentPasteIcon from "@mui/icons-material/ContentPaste";
+import API_BASE_URL from "./config";
 
 import "./App.css";
 
@@ -22,9 +23,11 @@ function App() {
     fetchBookings();
   }, []);
 
+  // test url: http://127.0.0.1:8000/api/bookings/
+
   const fetchBookings = async () => {
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/bookings/");
+      const response = await fetch(`${API_BASE_URL}/bookings/`);
       const data = await response.json();
       // console.log(data);
       setBookings(data);
@@ -40,16 +43,13 @@ function App() {
     };
 
     try {
-      const response = await fetch(
-        "http://127.0.0.1:8000/api/bookings/create/",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(bookingData),
-        }
-      );
+      const response = await fetch(`${API_BASE_URL}/bookings/create/`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(bookingData),
+      });
 
       const data = await response.json();
       // console.log(">>>", data);
@@ -81,7 +81,7 @@ function App() {
 
     try {
       const response = await fetch(
-        `http://127.0.0.1:8000/api/bookings/${currentBooking.id}`,
+        `${API_BASE_URL}/bookings/${currentBooking.id}`,
         {
           method: "PUT",
           headers: {
@@ -115,7 +115,7 @@ function App() {
     }
 
     try {
-      await fetch(`http://127.0.0.1:8000/api/bookings/${pk}`, {
+      await fetch(`${API_BASE_URL}/bookings/${pk}`, {
         method: "DELETE",
       });
 
