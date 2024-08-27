@@ -4,7 +4,7 @@ import BookingList from "./components/BookingList";
 import EditBookingPopup from "./components/EditBookingPopup";
 import { Container, Grid, Typography, Box } from "@mui/material";
 import ContentPasteIcon from "@mui/icons-material/ContentPaste";
-import API_BASE_URL from "./config";
+import { API_BASE_URL } from "./config";
 
 import "./App.css";
 
