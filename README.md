@@ -27,6 +27,7 @@ cd seatme
 ### 2. Set up a Virtual Enviroment
 
 ```bash
+cd server
 python3 -m venv env
 source env/bin/activate  # On Windows use `env\Scripts\activate`
 ```
@@ -36,23 +37,15 @@ source env/bin/activate  # On Windows use `env\Scripts\activate`
 Ensure your virtual environment is activated.
 
 ```bash
+cd server/newproject
 pip install -r requirements.txt
 ```
 
-### 4. Configure the Database
-
-Edit the settings.py file to update the database configuration. Make sure to replace 'yourpassword' with the actual password for your PostgreSQL user.
-
-### 5. Apply Migrations
+### 4. Apply Migrations
 
 ```bash
+cd server/newproject
 python3 manage.py migrate
-```
-
-### 6. Create a Superuser (Optional)
-
-```bash
-python3 manage.py createsuperuser
 ```
 
 ### 7. Start the Django Development Server
@@ -61,14 +54,14 @@ python3 manage.py createsuperuser
 python3 manage.py runserver
 ```
 
-Admin Interface: Access the admin interface at http://127.0.0.1:8000/api/bookings/create/
+Access the Django REST UI at http://127.0.0.1:8000/api/bookings/
 
 ### 8. Set Up the Front-End
 
-Navigate to the client directory (or wherever your front-end code is located):
+Navigate to the client directory:
 
 ```bash
-cd client
+cd client/app
 ```
 
 ### 8.1 Install Node.js Dependencies
@@ -82,3 +75,5 @@ npm instal
 ```bash
 npm run dev
 ```
+
+Feel free to reach out at lukelyusf@gmail.com if you encounter any issues during the setup process.
