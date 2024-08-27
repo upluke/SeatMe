@@ -2,6 +2,11 @@
 
 SeatMe is a Django-based web application that allows users to sign up for a waitlist at restaurants. The application utilizes PostgreSQL for database management and features a front-end built with React and Material UI.
 
+![Screen Shot 2024-08-26 at 11 13 57 PM](https://github.com/user-attachments/assets/5f111e36-64de-4fa1-9734-919c408dfb75)
+
+![Screen Shot 2024-08-25 at 9 28 53 PM](https://github.com/user-attachments/assets/30e3d548-b723-47ff-aa7a-7349f4573193)
+
+
 ## Features
 
 - **Waitlist Management:** Add and track users on the restaurant waitlist.
